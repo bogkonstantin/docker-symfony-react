@@ -1,0 +1,53 @@
+{% extends 'layout/landing.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="six columns offset-by-three">
+                <form method="post">
+                    <h1>Please sign in</h1>
+
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    <div class="row">
+                        <label for="inputEmail">Email</label>
+                        <input type="email"
+                               value="{{ last_username }}"
+                               name="email"
+                               id="inputEmail"
+                               class="u-full-width"
+                               required
+                               autofocus>
+                    </div>
+
+                    <div class="row">
+                        <label for="inputPassword">Password</label>
+                        <input type="password"
+                               name="password"
+                               id="inputPassword"
+                               class="u-full-width"
+                               required>
+                    </div>
+
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}"
+                    >
+
+                    <div class="row">
+                        <button class="button-primary" type="submit">
+                            Sign in
+                        </button>
+                    </div>
+
+                    <div class="row">
+                        <a href="{{ path('app_forgot_password_request') }}">Forgot password</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

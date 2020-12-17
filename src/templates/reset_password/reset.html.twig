@@ -1,0 +1,26 @@
+{% extends 'layout/landing.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="six columns offset-by-three">
+                <h1>Reset your password</h1>
+
+                {{ form_start(resetForm) }}
+
+                {{ form_row(resetForm.plainPassword) }}
+
+                <div class="row">
+                    <button class="button-primary">Reset password</button>
+                </div>
+
+                {{ form_end(resetForm) }}
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'layout/landing.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="six columns offset-by-three">
+                <h1>Register</h1>
+                {% for flashError in app.flashes('verify_email_error') %}
+                    <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+                {% endfor %}
+
+                {{ form_start(registrationForm) }}
+
+                {{ form_row(registrationForm.email, {attr: {class: 'u-full-width'}}) }}
+                {{ form_row(registrationForm.plainPassword, {
+                    label: 'Password',
+                    attr: {class: 'u-full-width'}
+                }) }}
+                {{ form_row(registrationForm.agreeTerms) }}
+
+                <button type="submit" class="button-primary">Register</button>
+
+                {{ form_end(registrationForm) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

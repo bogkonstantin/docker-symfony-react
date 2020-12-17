@@ -1,0 +1,20 @@
+{% extends 'layout/landing.html.twig' %}
+
+{% block title %}Hello LandingController!{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="twelve columns">
+                <h1>Hello {{ controller_name }}</h1>
+                <ul>
+                    <li><a href="{{ path('app_register') }}">Register</a></li>
+                    <li><a href="{{ path('app_login') }}">Login</a></li>
+                    <li><a href="{{ path('app_admin') }}">Admin</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {% if app.environment == 'prod' %}
+        {# TODO counters here #}
+    {% endif %}
+
+    {{ encore_entry_link_tags('landing', null, 'landing') }}
+{% endblock %}
+
+{% block body %}
+    {% block content %}{% endblock %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('landing', null, 'landing') }}
+{% endblock %}
